@@ -39,6 +39,9 @@ public:
     // Find a department by its name
     DepartmentNode* find(const std::string& name) const { return findHelper(name, root); }
 
+    // Inserts a new department into the tree
+    bool insert(const std::string& name, const std::string& parentName, std::string& errorMessage);
+
     // Constructor
     DepartmentTree() = default;
 

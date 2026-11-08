@@ -78,3 +78,41 @@ DepartmentTree::~DepartmentTree()
     destroyHelper(root);
     root = nullptr;
 }
+
+// Inserts a new department into the tree
+bool DepartmentTree::insert(const std::string& name, const std::string& parentName, std::string& errorMessage)
+{
+    // Creates the root department if the tree is empty
+    if (root == nullptr)
+    {
+        root = new DepartmentNode;
+        root->name = name;
+        return true;
+    }
+
+    // Checks if the department name already exists
+    if (find(name) != nullptr)
+    {
+        errorMessage = "Duplicate department: " + name;
+        return false;
+    }
+
+    // Finds the parent department
+    DepartmentNode* parent = find(parentName);
+    if (parent == nullptr)
+    {
+        errorMessage = "Unknown parent: " + parentName;
+        return false;
+    }
+
+    // Creates the new department node
+    DepartmentNode* node = new DepartmentNode;
+    node->name = name;
+    node->parent = parent;
+    node->depth = parent->depth + 1;
+
+    // Adds the new department to its parent
+    parent->children.push_back(node);
+    return true;
+}
+    
