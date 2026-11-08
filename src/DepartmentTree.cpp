@@ -22,3 +22,33 @@ static std::string toLowerCopy(const std::string& text)
     // Returns the lowercase copy of the input string
     return result;
 }
+
+// Recursively searches the tree for a department by name
+DepartmentNode* DepartmentTree::findHelper(const std::string& name, DepartmentNode* node) const
+{
+    // Returns null if the current node is null
+    if (node == nullptr)
+    {
+        return nullptr;
+    }
+
+    // Checks if the current node matches the department name
+    if (toLowerCopy(node->name) == toLowerCopy(name))
+    {
+        return node;
+    }
+
+    // Searches each child node for the department
+    for (DepartmentNode* child : node->children)
+    {
+        // Recursively searches the child node
+        DepartmentNode* found = findHelper(name, child);
+        if (found != nullptr)
+        {
+            return found;
+        }
+    }
+
+    // Returns null if the department is not found
+    return nullptr;
+}
