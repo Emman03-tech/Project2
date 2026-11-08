@@ -20,4 +20,20 @@ struct DepartmentNode {
     int depth = 0;
 };
 
+// The class for managing the academic department hierarchy
+class DepartmentTree {
+private:
+    // Pointer to the root department
+    DepartmentNode* root = nullptr;
+public:
+    // Constructor
+    DepartmentTree() = default;
+
+    // Destructor
+    ~DepartmentTree();
+
+    // Get the root department
+    DepartmentNode* getRoot() const { return root; }
+};
+
 #endif // DEPARTMENTTREE_HPP
