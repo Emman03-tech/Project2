@@ -10,12 +10,16 @@
 
 // Represents a node in the academic department hierarchy
 struct DepartmentNode {
+   
     // Name of the department
     std::string name;
+    
     // Pointer to the parent department
     DepartmentNode* parent = nullptr;
+    
     // Pointer to the child departments
     std::vector<DepartmentNode*> children;
+    
     // Depth of the department in the hierarchy
     int depth = 0;
 };
@@ -25,12 +29,13 @@ class DepartmentTree {
 private:
     // Find a department by its name
     DepartmentNode* findHelper(const std::string& name, DepartmentNode* node) const;
+    
     // Pointer to the root department
     DepartmentNode* root = nullptr;
 public:
     // Find a department by its name
     DepartmentNode* find(const std::string& name) const { return findHelper(name, root); }
-    
+
     // Constructor
     DepartmentTree() = default;
 
