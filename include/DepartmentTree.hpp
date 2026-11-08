@@ -23,9 +23,14 @@ struct DepartmentNode {
 // The class for managing the academic department hierarchy
 class DepartmentTree {
 private:
+    // Find a department by its name
+    DepartmentNode* findHelper(const std::string& name, DepartmentNode* node) const;
     // Pointer to the root department
     DepartmentNode* root = nullptr;
 public:
+    // Find a department by its name
+    DepartmentNode* find(const std::string& name) const { return findHelper(name, root); }
+    
     // Constructor
     DepartmentTree() = default;
 
