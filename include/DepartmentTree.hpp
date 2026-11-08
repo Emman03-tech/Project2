@@ -27,8 +27,11 @@ struct DepartmentNode {
 // The class for managing the academic department hierarchy
 class DepartmentTree {
 private:
-    // Find a department by its name
+    // Recursively searches the tree for a department by name
     DepartmentNode* findHelper(const std::string& name, DepartmentNode* node) const;
+    
+    // Deletes a department node and all of its children
+    void destroyHelper(DepartmentNode* node);
     
     // Pointer to the root department
     DepartmentNode* root = nullptr;

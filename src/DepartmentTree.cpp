@@ -52,3 +52,29 @@ DepartmentNode* DepartmentTree::findHelper(const std::string& name, DepartmentNo
     // Returns null if the department is not found
     return nullptr;
 }
+
+// Deletes a department node and all of its children
+void DepartmentTree::destroyHelper(DepartmentNode* node)
+{
+    // Returns if the current node is null
+    if (node == nullptr)
+    {
+        return;
+    }
+
+    // Deletes each child node
+    for (DepartmentNode* child : node->children)
+    {
+        destroyHelper(child);
+    }
+
+    // Deletes the current node
+    delete node;
+}
+
+// Destructor
+DepartmentTree::~DepartmentTree()
+{
+    destroyHelper(root);
+    root = nullptr;
+}
