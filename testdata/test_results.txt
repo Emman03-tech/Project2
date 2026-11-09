@@ -1,0 +1,120 @@
+========== CAMPUS NAVIGATION SYSTEM ==========
+1. View all facilities
+2. Search facility by ID
+3. View campus graph
+4. Display graph counts and degrees
+5. Find reachable buildings (BFS)
+6. Add department
+7. Search department
+8. Display department hierarchy
+9. Run preorder traversal
+10. Exit
+
+
+
+// Enter your choice: 1
+
+=== All Facilities ===
+F001 | Main Reading Room | Library | Library
+F002 | Tutoring Center | Library | Tutoring Center
+F003 | Student Services Office | Student Union | Student Services Office
+F004 | Computer Lab A | Science Building | Computer Lab
+F005 | Room 101 | Engineering Building | Classroom
+F006 | Computer Lab B | Engineering Building | Computer Lab
+F007 | Room 101 | Business Building | Classroom
+F008 | Fitness Center | Gym | Recreation
+F009 | Room 205 | Science Building | Classroom
+F010 | Research Help Desk | Library | Library
+Total facilities: 10
+
+
+// Enter your choice: 2
+
+Enter a facility ID: F001
+Found:
+ID: F001
+Name: Main Reading Room
+Building: Library
+Category: Library
+
+// Enter your choice: 3
+
+Campus Graph:
+Library -> Student Union, Business Building
+Student Union -> Library, Science Building, Gym
+Science Building -> Student Union, Engineering Building
+Engineering Building -> Science Building
+Business Building -> Library, Gym
+Gym -> Student Union, Business Building
+Observatory -> (no connections)
+
+// Enter your choice: 4
+
+Campus Graph Statistics:
+BUILDING DEGREES:
+Library: 2
+Student Union: 3
+Science Building: 2
+Engineering Building: 1
+Business Building: 2
+Gym: 2
+Observatory: 0
+Total buildings: 7
+Total connections: 6
+
+// Enter your choice: 5
+
+Enter a starting building for BFS: Library
+Reachable buildings from Library:
+Library (distance 0)
+Student Union (distance 1)
+Business Building (distance 1)
+Science Building (distance 2)
+Gym (distance 2)
+Engineering Building (distance 3)
+Reachable: 6 of 7 buildings
+
+// Enter your choice: 6
+
+Enter department name: Cybersecurity
+Enter parent department: Computer Science
+Department added successfully: Cybersecurity
+
+
+// Enter your choice: 7
+
+Enter department name: Cybersecurity
+Name: Cybersecurity
+Parent: Computer Science
+Children: 0
+Depth: 3
+
+// Enter your choice: 8
+
+Department Hierarchy:
+University
+    College of Engineering
+        Computer Science
+            Cybersecurity
+        Electrical Engineering
+    College of Science
+        Mathematics
+        Physics
+
+
+// Enter your choice: 9
+
+Preorder Traversal:
+University
+College of Engineering
+Computer Science
+Cybersecurity
+Electrical Engineering
+College of Science
+Mathematics
+Physics
+
+
+// Enter your choice: 10
+
+Exiting program...
