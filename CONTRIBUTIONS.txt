@@ -9,6 +9,7 @@ Member A: Emmanuel Ramirez
 -> Facility ID Search
 -> ReadMe File
 -> Category Search and Report
+-> Tested menu 1,2 
 
 Member B: Semere Yohannes
 
