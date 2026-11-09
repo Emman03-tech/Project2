@@ -73,9 +73,10 @@ buildings.txt, connections.txt, facilities.txt, departments.txt.
 Compiling and Running the Program:
 
 -- Open a terminal in the Project2 directory.
-g++ -std=c++17 -Iinclude src/main.cpp src/FileLoading.cpp src/CampusGraph.cpp src/FacilityDatabase.cpp src/HashTable.cpp src/DepartmentTree.cpp -o campus.exe
+g++ -std=c++17 -Wall -Wextra -Iinclude src/*.cpp -o campus
+
 Then:
- .\campus.exe 
+ ./campus Data
 
 Optional Data Directory:
 -- By default, the program reads data from the data/ folder.
