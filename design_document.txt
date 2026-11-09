@@ -34,14 +34,68 @@ organized and make components easier to develop and test
  
 
  // CampusGraph.hpp & CampusGraph.cpp //
- --
+ -- The Campus Graph stores campus buildings and their connections using an
+adjacency list. Each building contains a name and a vector of neighboring
+building indexes. Buildings are stored in their original file order,
+and connections are stored in the order they are accepted.
+-- When adding buildings, the program checks for empty names and duplicates.
+Building names are trimmed and compared without regard to capitalization.
+When adding connections, the program checks for unknown buildings,
+self-connections, and duplicate connections, including reversed duplicates.
+-- The graph can display all buildings and their neighboring buildings.
+It also calculates each building's degree, total buildings, and total
+connections. Since each undirected connection is stored twice, the
+total number of connections is calculated by dividing the sum of all
+building degrees by two.
+---- Breadth-First Search (BFS) is used to find all buildings reachable
+from a starting building. BFS uses a queue, a visited vector, and a
+distance vector. Buildings are marked as visited when added to the queue.
+The program displays reachable buildings in BFS order, their distances,
+and the total number of reachable buildings.
 
 
 
 // FileLoading.hpp & FileLoading.cpp // 
--- 
+-- The FileLoading module handles reading records from the four campus
+data files: buildings.txt, connections.txt, facilities.txt, and
+departments.txt. It uses ifstream and getline() to read each file
+one line at a time.
+-- Each record is stored in a vector using the InputLine structure,
+which contains the original line number and the record's text.
+Keeping the line number allows the program to identify invalid records
+and display warnings during validation.
 
+-- The trim() function removes leading and trailing whitespace,
+including spaces, tabs, and carriage returns. The program also skips
+empty lines and comment lines that begin with #.
 
+-- If a file cannot be opened, the program displays an error message
+and returns an empty vector without crashing. The main program uses
+the loaded records to validate and insert data into the appropriate
+modules.
+
+// Main.cpp // where everything connects
+-- The main.cpp file serves as the starting point of the program and
+connects the different modules together. It handles initializing the
+CampusGraph object, coordinating file loading, and displaying the
+main menu for user interaction.
+
+-- The program loads the four campus data files in the required order.
+It uses the FileLoading module to read the records, then validates
+building and connection records before inserting them into the graph.
+Invalid records are rejected with warnings that include the filename,
+line number, and reason for rejection.
+
+-- The main menu allows users to select different operations and
+continues running until the user chooses to exit. The campus graph
+options allow users to display building connections, view graph
+statistics, and find reachable buildings using BFS.
+-- The program handles invalid menu selections and blank building
+names without crashing.
+
+-- The program supports an optional command-line argument to load
+files from a different data directory for testing purposes.
+If no directory is provided, the program uses data/ by default.
 
 // DepartmentTree.hpp & DepartmentTree.cpp // 
 

@@ -1,7 +1,8 @@
- #include <iostream>
- #include <vector>
- #include <string>
+#include <iostream>
+#include <vector>
+#include <string>
 #include "FileLoading.hpp"
+#include "CampusGraph.hpp" 
 using namespace std;   
 
 int main(int argc, char* argv[]) {
