@@ -1,0 +1,17 @@
+Milestone 2 - Team contribution
+
+
+
+Member A: Emmanuel Ramirez
+
+-> Facility Database
+-> Custom Hash Table
+-> Facility ID Search
+-> ReadMe File
+-> Category Search and Report
+
+Member B: 
+
+
+
+Member C: 

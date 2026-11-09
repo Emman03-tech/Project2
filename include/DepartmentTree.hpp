@@ -32,6 +32,9 @@ private:
     
     // Deletes a department node and all of its children
     void destroyHelper(DepartmentNode* node);
+
+    // Recursively prints the department hierarchy
+    void printHierarchyHelper(DepartmentNode* node) const;
     
     // Pointer to the root department
     DepartmentNode* root = nullptr;
@@ -41,6 +44,9 @@ public:
 
     // Inserts a new department into the tree
     bool insert(const std::string& name, const std::string& parentName, std::string& errorMessage);
+
+    // Prints the department hierarchy
+    void printHierarchy() const;
 
     // Constructor
     DepartmentTree() = default;

@@ -5,6 +5,8 @@
 #include "../include/DepartmentTree.hpp"
 #include <cctype>
 #include <string>
+#include <iostream>
+
 
 // Converts a string to lowercase
 static std::string toLowerCopy(const std::string& text)
@@ -114,5 +116,37 @@ bool DepartmentTree::insert(const std::string& name, const std::string& parentNa
     // Adds the new department to its parent
     parent->children.push_back(node);
     return true;
+}
+
+// Recursively prints the department hierarchy
+void DepartmentTree::printHierarchyHelper(DepartmentNode* node) const
+{
+    // Returns if the current node is null
+    if (node == nullptr)
+    {
+        return;
+    }
+
+    // Prints the current department
+    std::cout << std::string(node->depth * 4, ' ') << node->name << '\n';
+
+    // Recursively prints each child department
+    for (DepartmentNode* child : node->children)
+    {
+        printHierarchyHelper(child);
+    }
+}
+
+// Prints the department hierarchy
+void DepartmentTree::printHierarchy() const
+{
+    // Returns if the tree is empty
+    if (root == nullptr)
+    {
+        std::cout << "No departments are loaded.\n";
+        return;
+    }
+
+    printHierarchyHelper(root);
 }
     

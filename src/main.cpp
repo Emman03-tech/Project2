@@ -1,10 +1,8 @@
-#include <iostream>
-#include <string>
-#include <vector>
-#include "CampusGraph.hpp"
-#include "FileLoading.hpp" 
-using namespace std;
-
+ #include <iostream>
+ #include <vector>
+ #include <string>
+#include "FileLoading.hpp"
+using namespace std;   
 
 int main(int argc, char* argv[]) {
     // Default data directory
