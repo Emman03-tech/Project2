@@ -14,4 +14,11 @@ Member B:
 
 
 
-Member C: 
+Member C: Boluwatife Elijah Okusanya
+
+-> Department Tree (DepartmentNode, DepartmentTree)
+-> Add department (insert) with duplicate and unknown-parent checks
+-> Case-insensitive department search (find, printDepartmentInfo)
+-> Hierarchy display with indentation
+-> Preorder traversal
+-> Destructor (frees all tree nodes)
