@@ -2,11 +2,8 @@
 #include <vector>
 #include <string>
 #include "FileLoading.hpp"
-<<<<<<< HEAD
 #include "FacilityDatabase.hpp"
-=======
-#include "CampusGraph.hpp" 
->>>>>>> 395150d3b304b5632ebbb0b3ee30d51a89a432df
+#include "CampusGraph.hpp"
 using namespace std;   
 
 int main(int argc, char* argv[]) {
