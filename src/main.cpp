@@ -2,7 +2,11 @@
 #include <vector>
 #include <string>
 #include "FileLoading.hpp"
+<<<<<<< HEAD
+#include "FacilityDatabase.hpp"
+=======
 #include "CampusGraph.hpp" 
+>>>>>>> 395150d3b304b5632ebbb0b3ee30d51a89a432df
 using namespace std;   
 
 int main(int argc, char* argv[]) {
@@ -16,6 +20,8 @@ int main(int argc, char* argv[]) {
 
     // Create a campus graph object
     CampusGraph Graph;
+    FacilityDatabase facilityDB;
+    vector<string> validBuildings;
 
     // Read all buildings rocords from the file
     vector<InputLine> buildings = readRecords(dataDir + "/buildings.txt");
@@ -34,8 +40,10 @@ int main(int argc, char* argv[]) {
         }
 
         // Try to add the building to the graph. If it fails, it's either a duplicate or invalid name
-        if (Graph.addBuilding(record.text)) {
+        if (Graph.addBuilding(record.text)) 
+        {
             accepted++;
+            validBuildings.push_back(record.text);
         }
         else {
             rejected++;
@@ -115,7 +123,9 @@ int main(int argc, char* argv[]) {
     // Read the remaining files (validation will be added later)
     vector<InputLine> facilities = readRecords(dataDir + "/facilities.txt");
     vector<InputLine> departments = readRecords(dataDir + "/departments.txt");
-
+    facilityDB.loadFromFile(dataDir + "/facilities.txt", validBuildings);
+    facilityDB.displayLoadSummary("facilities.txt");
+    
     // Display the number of records read from the remaining files
     cout << "Facilities read: " << facilities.size() << endl;
     cout << "Departments read: " << departments.size() << endl;
@@ -187,10 +197,26 @@ int main(int argc, char* argv[]) {
                 Graph.displayReachableBuildings(startBuilding);
             }
         }
+        else if (choice == "1")
+            {
+                facilityDB.displayAll();
+            }
+        else if (choice == "2")
+        {
+            string facilityID;
+
+            cout << "Enter a facility ID: ";
+            if (!getline(cin, facilityID))
+            {
+                cout << "Input ended. Exiting Program." << endl;
+                break;
+            }
+
+            facilityDB.searchByID(facilityID);
+        }
 
         // Other features to be added 
-        else if (choice == "1" || choice == "2" ||
-                choice == "6" || choice == "7" ||
+        else if (choice == "6" || choice == "7" ||
                 choice == "8" || choice == "9") {
             cout << "This feature has not been integrated yet." << endl;
         }
