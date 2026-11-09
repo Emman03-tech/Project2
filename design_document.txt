@@ -1,0 +1,52 @@
+Milestone 1 - Design Document 
+
+Project Overview
+
+- The Smart Campus Navigation and Facility Analytics System is designed
+to organize campus facilities, building connections, and academic
+departments.
+- The system is divided into seperate modules to keep the program
+organized and make components easier to develop and test
+
+
+ // FacilityDatabase.hpp & FacilityDatabase.cpp //
+ -- This stores campus facility records. Each facility contains a facility ID,
+ facility name, building name and category. A vector stores accepted
+ facilities in their original file. Database also uses a custom hash table to locate facilities
+ by ID. 
+ -- When loading, program checks for missing fields, invalid ID's, unknown building,
+ and duplicate facility ID's. Invalid records are rejected and accepted records are 
+ stored. 
+
+ // HashTable.hpp and HashTable.cpp //
+ -- The custom hash table uses facility ID's as keys and positions in the facility
+ vector as values. It uses polynomial-style string hash function, each character
+ contributes to the hash value. 
+ -- Formula : hash = (hash * 31 + character value) % capacity
+ -- The Hash Table uses seperate chaining to handle collisions. Each bucket contains a 
+ vector of entries. When different facility ID's produce the same bucket index, the entries
+ coexist in that bucket. Before inserting or searching, facility ID's are trimmed and converted
+ to uppercase. Valid ID's must contain the letter F followed by three digits.
+ -- Duplicate ID's are rejectedm which preserves the first accepted facility record. A collision
+ is conted when an accepted insertion enters a bucket that already
+ contains an entry. Hash table reports its capacity, total number of entries and collision count.
+
+ 
+
+ // CampusGraph.hpp & CampusGraph.cpp //
+ --
+
+
+
+// FileLoading.hpp & FileLoading.cpp // 
+-- 
+
+
+
+// DepartmentTree.hpp & DepartmentTree.cpp // 
+
+
+
+
+
+

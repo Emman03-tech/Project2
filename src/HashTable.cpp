@@ -1,3 +1,5 @@
+// Emmanuel Ramirez
+
 #include "../include/HashTable.hpp"
 #include <cctype>
 #include <stdexcept>
