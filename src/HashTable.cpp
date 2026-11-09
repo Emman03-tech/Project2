@@ -4,7 +4,7 @@
 #include <cctype>
 #include <stdexcept>
 
-using namespace std:
+using namespace std;
 
 // Implementing custom facility ID hashing
 // Insertion, lookup, and collision statistics
@@ -117,7 +117,7 @@ bool HashTable::search(const string& id, size_t& facilityIndex) const
 {
     string key = normalizeID(id);
 
-    if (validID(key))
+    if (!validID(key))
     {
         return false;
     }

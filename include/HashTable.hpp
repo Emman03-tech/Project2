@@ -39,6 +39,8 @@ class HashTable
     // Returns false if ID already exists
     bool insert(const std::string& id, std::size_t facilityIndex);
 
+    bool search(const std::string& id, std::size_t& facilityIndex) const;
+
     //Returns the number of buckets
     std::size_t getCapacity() const;
 

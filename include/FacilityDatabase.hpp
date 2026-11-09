@@ -20,7 +20,7 @@ struct Facility
 class FacilityDatabase
 {
     private:
-    stf::vector<Facility> facilities;
+    std::vector<Facility> facilities;
     HashTable hashTable;
 
     int acceptedCount;
