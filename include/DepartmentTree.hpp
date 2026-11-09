@@ -35,6 +35,9 @@ private:
 
     // Recursively prints the department hierarchy
     void printHierarchyHelper(DepartmentNode* node) const;
+
+    // Prints a department node and its children in preorder
+    void printPreorderHelper(DepartmentNode* node) const;
     
     // Pointer to the root department
     DepartmentNode* root = nullptr;
@@ -47,6 +50,9 @@ public:
 
     // Prints the department hierarchy
     void printHierarchy() const;
+
+    // Prints the department hierarchy in preorder order
+    void printPreorder() const;
 
     // Constructor
     DepartmentTree() = default;

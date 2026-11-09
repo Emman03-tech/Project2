@@ -149,4 +149,35 @@ void DepartmentTree::printHierarchy() const
 
     printHierarchyHelper(root);
 }
-    
+
+// Recursively prints a department node and its children in preorder
+void DepartmentTree::printPreorderHelper(DepartmentNode* node) const
+{
+    // Returns if the current node is null
+    if (node == nullptr)
+    {
+        return;
+    }
+
+    // Prints the current department
+    std::cout << node->name << '\n';
+
+    // Recursively prints each child department
+    for (DepartmentNode* child : node->children)
+    {
+        printPreorderHelper(child);
+    }
+}
+
+// Prints the department hierarchy in preorder
+void DepartmentTree::printPreorder() const
+{
+    // Returns if the tree is empty
+    if (root == nullptr)
+    {
+        std::cout << "No departments are loaded.\n";
+        return;
+    }
+
+    printPreorderHelper(root);
+}
