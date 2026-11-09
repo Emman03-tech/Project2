@@ -54,6 +54,9 @@ public:
     // Prints the department hierarchy in preorder order
     void printPreorder() const;
 
+    // Prints information about a department by its name
+    void printDepartmentInfo(const std::string& name) const;
+
     // Constructor
     DepartmentTree() = default;
 

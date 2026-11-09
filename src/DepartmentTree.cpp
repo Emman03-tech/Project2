@@ -180,4 +180,28 @@ void DepartmentTree::printPreorder() const
     }
 
     printPreorderHelper(root);
+
+}
+
+// Prints information about a department by its name
+void DepartmentTree::printDepartmentInfo(const std::string& name) const
+{
+    DepartmentNode* node = find(name);
+    if (node == nullptr)
+    {
+        std::cout << "Department not found: " << name << '\n';
+        return;
+    }
+
+    std::cout << "Name: " << node->name << '\n';
+    if (node->parent != nullptr)
+    {
+        std::cout << "Parent: " << node->parent->name << '\n';
+    }
+    else
+    {
+        std::cout << "Parent: None\n";
+    }
+    std::cout << "Children: " << node->children.size() << '\n';
+    std::cout << "Depth: " << node->depth << '\n';
 }
