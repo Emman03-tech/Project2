@@ -95,7 +95,7 @@ bool HashTable::insert(const string& id, size_t facilityIndex)
 
     for (const Entry& entry : table[bucket])
     {
-        if (entry.if == key)
+        if (entry.id == key)
         {
             return false;
         }
