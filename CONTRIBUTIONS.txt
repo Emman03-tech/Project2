@@ -10,7 +10,18 @@ Member A: Emmanuel Ramirez
 -> ReadMe File
 -> Category Search and Report
 
-Member B: 
+Member B: Semere Yohannes
+
+-> Campus Graph (CampusGraph.hpp, CampusGraph.cpp)
+-> Undirected graph using adjacency lists
+-> Building and connection validation (duplicate, unknown, and self-connections)
+-> Graph display, building degrees, and connection statistics
+-> Breadth-First Search (BFS) for reachable buildings and distances
+-> File Loading (FileLoading.hpp, FileLoading.cpp)
+-> Shared main.cpp and menu implementation
+-> Data file loading and accepted/rejected record summaries
+-> Shared Design Document and README contributions
+-> Tested menu 3,4,5. No problem
 
 
 
