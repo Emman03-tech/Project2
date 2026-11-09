@@ -24,6 +24,25 @@ Directory:
 -- .gitignore          : excludes compiled executables and object files 
 
 Structure:
+-- FileLoading.cpp:
+
+-- Handles reading data from the four input files using ifstream
+and getline(). Each record is stored with its original line number
+using the InputLine structure.
+
+-- Skips empty lines and comments, removes leading and trailing
+whitespace, and reports an error if a file cannot be opened.
+
+-- main.cpp:
+
+-- Serves as the starting point of the program and connects
+the different modules together.
+
+-- Handles loading data, validating building and connection records,
+displaying load summaries, and running the main menu.
+
+-- The menu allows users to display campus connections, view graph
+statistics, and find reachable buildings using BFS. Other features...
 
 -- FacilityDatabase.cpp : Stores facility records containing an ID, facility name, building name,
 and category. Responsible for validating facility records, displaying facilities and searching by 
@@ -39,5 +58,35 @@ using Breadth First Search (BFS).
 -- DepartmentTree.cpp : The tree represents the academic department hierarchy using a General
 tree. Includes adding departments, searching for departments, displaying the hierarchy and performing
 preorder traversal.
+
+How to run it:
+Input Files:
+
+-- buildings.txt   : Contains the names of campus buildings.
+-- connections.txt : Contains pairs of connected buildings separated by |.
+-- facilities.txt  : Contains facility IDs, names, buildings, and categories.
+-- departments.txt : Contains department names and their parent departments.
+
+-- The files are loaded from the data/ directory in the following order:
+buildings.txt, connections.txt, facilities.txt, departments.txt.
+
+Compiling and Running the Program:
+
+-- Open a terminal in the Project2 directory.
+g++ -std=c++17 -Iinclude src/main.cpp src/FileLoading.cpp src/CampusGraph.cpp src/FacilityDatabase.cpp src/HashTable.cpp src/DepartmentTree.cpp -o campus.exe
+Then:
+ .\campus.exe 
+
+Optional Data Directory:
+-- By default, the program reads data from the data/ folder.
+-- A different data directory can be provided through a
+command-line argument for testing purposes.
+
+-- Example:
+.\campus.exe testdata/case1
+
+-- This allows the program to run using another set of input
+files without changing the source code.
+
 
 GitHub Repository Link: https://github.com/Emman03-tech/Project2.git
