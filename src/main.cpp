@@ -1,4 +1,6 @@
  #include <iostream>
+ #include <vector>
+ #include <string>
 #include "FileLoading.hpp"
 using namespace std;   
 
