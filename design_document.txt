@@ -98,6 +98,41 @@ files from a different data directory for testing purposes.
 If no directory is provided, the program uses data/ by default.
 
 // DepartmentTree.hpp & DepartmentTree.cpp // 
+-- The DepartmentTree is a general tree used to organize university 
+departments and their relationships. Each DepartmentNode stores four 
+things: the department name, a pointer to its parent, a vector of 
+pointers to its children, and its depth in the tree. The children 
+vector is used instead of left and right pointers because a 
+department can have more than two child departments. This makes 
+it a general tree rather than a binary tree.
+
+-- The insert function first checks whether the tree is empty. 
+If it is, the new department becomes the root. Otherwise, it 
+checks whether the department already exists and rejects 
+duplicate names. It then searches for the requested parent and 
+rejects the insertion if that parent cannot be found. If both 
+checks pass, it creates a new node, sets its parent and depth, 
+and adds it to the parent's children vector.
+
+-- The find function starts searching from the root by calling 
+findHelper. At each node, it compares the department name with 
+the requested name. If they match, it returns that node. Otherwise, 
+it recursively searches each child until it finds a match or reaches 
+the end of the tree. It converts both names to lowercase before comparing 
+them, so searching is not case-sensitive.
+
+-- The printHierarchy function uses recursion to display the root first, 
+followed by its children and their descendants. Indentation is based on each 
+node's depth, using four spaces per level. The printPreorder function also 
+visits the current node before its children, but prints only the department 
+names without indentation. Both methods visit parents before their children.
+
+-- The destructor calls destroyHelper to recursively delete every node in 
+the tree. The helper first deletes all the children and their descendants, 
+then deletes the current parent node. Children must be deleted before their 
+parent because the parent stores pointers to those children. This prevents 
+dynamically allocated nodes from being left in memory. After cleanup, the 
+root pointer is set to nullptr.
 
 
 
